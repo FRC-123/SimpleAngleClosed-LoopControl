@@ -35,15 +35,15 @@ public class Robot extends TimedRobot {
      * parameters will not persist between power cycles
      */
     m_motor.restoreFactoryDefaults();
-
+    m_motor.setSmartCurrentLimit(20);
+    m_motor.setClosedLoopRampRate(0.5);
+    m_motor.setOpenLoopRampRate(0.5);
     /**
      * In order to use PID functionality for a controller, a SparkMaxPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
      */
     m_pidController = m_motor.getPIDController();
-    m_motor.setSmartCurrentLimit(20);
-    m_motor.setClosedLoopRampRate(0.5);
 
     // Encoder object created to display position values
     m_encoder = m_motor.getEncoder();
